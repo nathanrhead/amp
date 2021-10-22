@@ -58,6 +58,16 @@
         color: orange;
         opacity: 1; /* Firefox */
       }
+      #fallback {
+        width: 50%; 
+        margin: auto;
+        margin-top: 3vh;
+        border: 5px white dashed;
+        padding: 8vh;
+      }
+      #unavailable {
+        width: 150%;
+      }
     </style>
     <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
@@ -70,18 +80,18 @@
         name="search" 
         type="text" 
         placeholder="Search"       
-        on="change:AMP.setState({ srcUrl: 'https://www.omdbapi.com/?apikey=c2f9b89f&s=' + event.value })"
+        on="change:AMP.setState({ srcUrl: 'https://www.omdbapi.com/?apikey=c2f9b89f&s=' + event.value})"
       >
     </header>
-    <amp-state id="srcUrl" src="https://www.omdbapi.com/?apikey=c2f9b89f&s=back+to+the+future"></amp-state>
+    <amp-state id="placeHolderUrl" src="https://www.omdbapi.com/?apikey=c2f9b89f&s=back+to+the+future"></amp-state>
     <amp-list
     width="auto"
     height="100"
     layout="fixed-height"
-    src="amp-state:srcUrl" 
+    src="amp-state:placeHolderUrl" 
     [src]="srcUrl" 
-    binding="no"    
-    items="Search"    
+    binding="no"
+    items="Search"
     >
     <template type="amp-mustache">
       <div class="movie">
@@ -93,12 +103,17 @@
             height="3vw"
             layout="responsive"
           >
-              <amp-img fallback src="https://via.placeholder.com/100"  width="100"
-              height="100">
-                No poster available.
-              </amp-img>
+          <div id="fallback" fallback>
+            <p id="unavailable">This poster is unavailable.</p>
+            <amp-img  alt="No poster is available" src="./forbidden-icon-10068.png" width="150"
+            height="150">
+            </amp-img>
+          </div>
           </amp-img>    
         </div>
+      </template>
+      <template type="amp-mustache" id="error">
+        <div>{{Error}}</div>
       </template>
     </amp-list>
   </body>
