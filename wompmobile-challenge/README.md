@@ -1,5 +1,9 @@
 # WompMobile Code Challenge | 22 Oct 2021
 
+## Author
+
+Nathan Cox
+
 ## Goal
 
 Create a movie search engine using the OMBd API and AMP components.
@@ -19,7 +23,7 @@ In addition to any of the "getting started" tutorials, we recommend reviewing am
 - [x] Provide your solution as a single HTML file that passes the AMP Validator.
 - [x] Include a text input that refreshes the dynamic content as the user types.
 - [x] Include an amp-list, amp-img, and demonstrate usage of amp-bind and event handling.
-- [x] At minimum, display the movie title and cover image.
+- [x] At a minimum, display the movie title and cover image.
 - [x] Apply some basic CSS to the page.
 
 ## Stretch Goals
@@ -28,3 +32,5 @@ In addition to any of the "getting started" tutorials, we recommend reviewing am
 - [ ] Flush out the styles & DOM to feel like a real web page (i.e. header, sidebar, etc).
 - [ ] Show a total result count.
 - [ ] Add pagination.
+- [x] Add a fallback for posters that aren't available.
+- [ ] Add persistence.
