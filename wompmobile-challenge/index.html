@@ -79,10 +79,12 @@
   <body>
     <header>
       <h1 id="search">WM Movie Search</h1>
-        <input 
+        <input
+        id="input-form"
         name="search" 
         type="text" 
         placeholder="Search"
+        [placeholder]="hidePlaceholder"
         on="change:AMP.setState({ srcUrl: 'https://www.omdbapi.com/?apikey=c2f9b89f&s=' + event.value})"
       >
     </header>
